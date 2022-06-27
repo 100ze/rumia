@@ -11746,6 +11746,12 @@ textarea.form-control-lg {
   background: #d41d12;
 }
 
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+  overflow: visible;
+}
+
 body {
   background-color: #482933;
   color: #ffffff;
