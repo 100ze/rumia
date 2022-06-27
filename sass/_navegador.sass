@@ -3,15 +3,11 @@
   color: $white
   background: $red
 
-::-webkit-scrollbar
-  width: 20px
-  height: 20px
-  overflow: visible
-
 body
   background-color: $dark_purple
   color: $white
   .r_cabecalho
+    height: 60px
     background-color: $light_yellow 
     .r_numero_aba
       max-width: 60px
@@ -34,8 +30,12 @@ body
 
       &:hover
         background-color: $light_red !important
-  
-  .r_pesquisa
+
+  .r_iframe
+    width: 100vw
+    height: calc(100vh - 60px)
+   
+  .r_enviar
     min-height: 60px
     margin-top: 100px
       
@@ -46,7 +46,7 @@ body
         background-color: $white
         outline: none
 
-    .r_botao_pesquisar
+    .r_botao_enviar
       background-color: $light_red !important
       color: $white 
       &:hover

@@ -11746,17 +11746,12 @@ textarea.form-control-lg {
   background: #d41d12;
 }
 
-::-webkit-scrollbar {
-  width: 20px;
-  height: 20px;
-  overflow: visible;
-}
-
 body {
   background-color: #482933;
   color: #ffffff;
 }
 body .r_cabecalho {
+  height: 60px;
   background-color: #fed697;
 }
 body .r_cabecalho .r_numero_aba {
@@ -11781,27 +11776,31 @@ body .r_cabecalho .r_botao {
 body .r_cabecalho .r_botao:hover {
   background-color: #ed3839 !important;
 }
-body .r_pesquisa {
+body .r_iframe {
+  width: 100vw;
+  height: calc(100vh - 60px);
+}
+body .r_enviar {
   min-height: 60px;
   margin-top: 100px;
 }
-body .r_pesquisa input {
+body .r_enviar input {
   background-color: #fed697;
   color: #333;
 }
-body .r_pesquisa input:focus {
+body .r_enviar input:focus {
   background-color: #ffffff;
   outline: none;
 }
-body .r_pesquisa .r_botao_pesquisar {
+body .r_enviar .r_botao_enviar {
   background-color: #ed3839 !important;
   color: #ffffff;
 }
-body .r_pesquisa .r_botao_pesquisar:hover {
+body .r_enviar .r_botao_enviar:hover {
   background-color: #d41d12 !important;
   outline: none;
 }
-body .r_pesquisa .r_botao_pesquisar:active {
+body .r_enviar .r_botao_enviar:active {
   background-color: #d41d12 !important;
   outline: none;
 }
