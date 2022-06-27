@@ -23,6 +23,12 @@ class Navegador {
           <button class="r_botao_enviar js_botao_enviar col-4 btn border-0 rounded-0 fs-1">Go!</button>
         </div>
       </section>
+      <section class="row mt-2 justify-content-center">
+        <div class="col-11 row">
+          <button class="col r_botao_localhost js_botao_localhost btn border-0 rounded-0 fs-1">Localhost</button>
+          <button class="col r_botao_incorporar js_botao_incorporar btn border-0 rounded-0 fs-1">Incorporar</button>
+        </div>
+      </section>
     `
     guia_wrapper.id = this._palavra_diferenciadora + id
     guia_wrapper.innerHTML = guia

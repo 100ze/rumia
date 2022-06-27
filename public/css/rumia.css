@@ -11804,9 +11804,19 @@ body .r_enviar .r_botao_enviar:active {
   background-color: #d41d12 !important;
   outline: none;
 }
-body .r_botao_incorporar {
-  background-color: #4e4a55;
+body .r_botao_localhost {
+  background-color: #8188e0;
   color: #ffffff;
+}
+body .r_botao_localhost:hover {
+  background-color: #313edb;
+}
+body .r_botao_incorporar {
+  background-color: #69de61;
+  color: #ffffff;
+}
+body .r_botao_incorporar:hover {
+  background-color: #4ce841;
 }
 
 /*# sourceMappingURL=rumia.css.map */
