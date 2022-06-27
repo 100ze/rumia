@@ -1,3 +1,4 @@
 
-Navegador.nova_guia()
+//Navegador._nova_guia()
 
+Controller.carregar_controllers()

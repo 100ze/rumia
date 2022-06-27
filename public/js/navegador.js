@@ -7,6 +7,7 @@ class Navegador {
     this._guia_atual = 0
 
     this._lista_de_iframes = document.querySelector(".js_lista_de_iframes")
+    this._marcador_aba_atual = document.querySelector(".js_marcador_aba_atual")
   }
 
   static _criar_guia_padrao(id) {
@@ -64,7 +65,46 @@ class Navegador {
     botao_enviar.addEventListener("click", this._botao_enviar)
   }
 
-  static nova_guia() {
+  static _c(o) {
+    window.console.log(o)
+  }
+
+  static _relatorio() {
+    this._c(this._lista_de_guias)
+    this._c(this._lista_de_iframes)
+    this._c(this._guia_atual)
+  }
+
+  static _atualizar_marcador(guia_atual) {
+    this._marcador_aba_atual.innerHTML = guia_atual
+  }
+
+  static _ocultar_todas_as_guias() {
+    this._lista_de_guias.forEach((guia) => {
+      guia.classList.add("d-none")
+    })
+  }
+
+  static _mostrar_aba(numero_da_guia) {
+    this._lista_de_guias[numero_da_guia].classList.remove("d-none")
+  }
+
+  static _mudar_para_a_guia(numero_da_guia) {
+    this._ocultar_todas_as_guias()
+    this._mostrar_aba(numero_da_guia)
+    this._guia_atual = numero_da_guia
+    this._atualizar_marcador(numero_da_guia)
+  }
+
+  static _tem_como_avancar(numero_da_guia) {
+    return numero_da_guia < this._lista_de_guias.length ? true : false
+  }
+
+  static _tem_como_retroceder(numero_da_guia) {
+    return numero_da_guia >= 0 ? true : false
+  }
+
+  static _nova_guia() {
     const numero_da_guia = this._lista_de_guias.length
     const guia = this._criar_guia_padrao(numero_da_guia)
 
@@ -74,6 +114,30 @@ class Navegador {
 
     this._lista_de_iframes.appendChild(guia)
 
-    this._guia_atual = numero_da_guia
+    this._mudar_para_a_guia(numero_da_guia)
+  }
+
+  static avancar() {
+    const proxima_aba = this._guia_atual + 1
+    const tem_como_avancar = this._tem_como_avancar(proxima_aba)
+
+    if (tem_como_avancar) {
+      this._mudar_para_a_guia(proxima_aba)
+    } else {
+      this._nova_guia()
+    }
+
+    this._relatorio()
+  }
+
+  static retroceder() {
+    const aba_anterior = this._guia_atual - 1
+    const tem_como_retroceder = this._tem_como_retroceder(aba_anterior)
+
+    if (tem_como_retroceder) {
+      this._mudar_para_a_guia(aba_anterior)
+    }
+
+    this._relatorio()
   }
 }
