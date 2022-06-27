@@ -1,6 +1,12 @@
 
 @import _colors
 
+.r_minimizado
+  display: none !important
+
+.r_ativo
+  color: $light_red !important
+
 .rumia_wrapper
   width: calc((100% - 414px) * 0.4)
   height: 100vh
@@ -8,7 +14,7 @@
   max-height: 100vh
   
   overflow: hidden
-  box-sizing: border-box
+  box-sizing: padding-box
   
   position: absolute
   top: 0
@@ -19,3 +25,4 @@
   direction: rtl
   
   background-color: $dark_purple
+  border: 1px solid transparent
