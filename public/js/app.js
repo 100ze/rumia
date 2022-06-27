@@ -1,0 +1,3 @@
+
+Navegador.nova_guia()
+
