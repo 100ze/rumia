@@ -37,6 +37,9 @@ class Navegador {
 
     iframe.classList.add("r_iframe")
 
+    iframe.allowfullscreen = true
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+
     iframe.src = endereco
 
     return iframe
