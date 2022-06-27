@@ -1,6 +1,7 @@
 
 class Navegador {
   static {
+    // serve literalmente pra nada kkkkkkkkk
     this._palavra_diferenciadora = "touhou"
 
     this._lista_de_guias = []
@@ -8,6 +9,8 @@ class Navegador {
 
     this._lista_de_iframes = document.querySelector(".js_lista_de_iframes")
     this._marcador_aba_atual = document.querySelector(".js_marcador_aba_atual")
+
+    this._link_touhou = "https://takahirox.github.io/toho-like-js/index.html"
   }
 
   static _criar_guia_padrao(id) {
@@ -121,6 +124,20 @@ class Navegador {
 
     this._lista_de_iframes.appendChild(guia)
 
+  }
+
+  static rumia() {
+    const guia_atual = this._guia_atual
+    const iframe = this._criar_iframe(this._link_touhou)
+    const guia = this._criar_guia_padrao(guia_atual)
+
+    this._se_a_guia_ja_existir_apague(guia_atual)
+
+    guia.innerHTML = ""
+    guia.appendChild(iframe)
+
+    this._lista_de_guias[guia_atual] = guia
+    this._lista_de_iframes.appendChild(guia)
   }
 
   static resetar() {
