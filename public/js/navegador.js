@@ -15,7 +15,7 @@ class Navegador {
     const guia = ` 
       <section class="r_enviar js_guia_padrao row justify-content-center">
         <div class="col-11 row">
-          <input class="r_campo js_campo col border-0 fs-2" placeholder="http://">
+          <input class="r_campo js_campo col border-0 fs-2" placeholder="https://">
           <button class="r_botao_enviar js_botao_enviar col-4 btn border-0 rounded-0 fs-1">Go!</button>
         </div>
       </section>
@@ -104,17 +104,27 @@ class Navegador {
     return numero_da_guia >= 0 ? true : false
   }
 
-  static _nova_guia() {
-    const numero_da_guia = this._lista_de_guias.length
+  static _se_a_guia_ja_existir_apague(numero_da_guia) {
+    if (this._lista_de_guias[numero_da_guia]) {
+      this._lista_de_guias[numero_da_guia].remove()
+    }
+  }
+
+  static _inserir_nova_guia_em(numero_da_guia) {
+    this._se_a_guia_ja_existir_apague(numero_da_guia)
+
     const guia = this._criar_guia_padrao(numero_da_guia)
 
     this._adicionar_funcionalidade(guia)
 
-    this._lista_de_guias.push(guia)
+    this._lista_de_guias[numero_da_guia] = guia
 
     this._lista_de_iframes.appendChild(guia)
 
-    this._mudar_para_a_guia(numero_da_guia)
+  }
+
+  static resetar() {
+    this._inserir_nova_guia_em(this._guia_atual)
   }
 
   static avancar() {
@@ -124,7 +134,8 @@ class Navegador {
     if (tem_como_avancar) {
       this._mudar_para_a_guia(proxima_aba)
     } else {
-      this._nova_guia()
+      this._inserir_nova_guia_em(proxima_aba)
+      this._mudar_para_a_guia(proxima_aba)
     }
 
     this._relatorio()
