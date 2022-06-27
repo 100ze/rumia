@@ -207,8 +207,6 @@ class Navegador {
       this._inserir_nova_guia_em(proxima_aba)
       this._mudar_para_a_guia(proxima_aba)
     }
-
-    this._relatorio()
   }
 
   static retroceder() {
@@ -218,7 +216,5 @@ class Navegador {
     if (tem_como_retroceder) {
       this._mudar_para_a_guia(aba_anterior)
     }
-
-    this._relatorio()
   }
 }
