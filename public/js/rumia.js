@@ -16,6 +16,8 @@ class Wrapper {
   static _criar_wrapper() {
     const wrapper = document.createElement("iframe")
 
+    wrapper.allow = "clipboard-read"
+
     wrapper.classList.add("rumia_wrapper")
 
     this._body.appendChild(wrapper)

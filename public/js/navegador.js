@@ -66,6 +66,11 @@ class Navegador {
     }
   }
 
+  static _pegar_endereço_de_codigo_incorporado(codigo) {
+    const regexp = /src\s*=\s*"(.+?)"/
+    return codigo.match(regexp)[1]
+  }
+
   static _botao_enviar() {
     const guia = this.parentNode.parentNode.parentNode
     const campo = guia.querySelector(".js_campo")
@@ -73,7 +78,6 @@ class Navegador {
     const iframe = Navegador._criar_iframe(endereco)
 
     guia.innerHTML = ""
-
     guia.appendChild(iframe)
   }
 
@@ -90,13 +94,29 @@ class Navegador {
     guia.appendChild(iframe)
   }
 
+  static _botao_incorporar() {
+    const guia = this.parentNode.parentNode.parentNode
+    const codigo_incorporado = navigator.clipboard.readText()
+
+    codigo_incorporado.then(
+      codigo_incorporado => {
+        let endereco = Navegador._pegar_endereço_de_codigo_incorporado(codigo_incorporado)
+
+        const iframe = Navegador._criar_iframe(endereco)
+
+        guia.innerHTML = ""
+        guia.appendChild(iframe)
+      });
+  }
+
   static _adicionar_funcionalidade(guia) {
     const botao_enviar = guia.querySelector(".js_botao_enviar")
     const botao_localhost = guia.querySelector(".js_botao_localhost")
-    const campo = guia.querySelector(".js_campo")
+    const botao_incorporar = guia.querySelector(".js_botao_incorporar")
 
     botao_enviar.addEventListener("click", this._botao_enviar)
     botao_localhost.addEventListener("click", this._botao_localhost)
+    botao_incorporar.addEventListener("click", this._botao_incorporar)
   }
 
   static _c(o) {
