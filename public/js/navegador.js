@@ -11,7 +11,7 @@ class Navegador {
     this._link_touhou_multiplayer = "https://takahirox.github.io/toho-like-js/index2.html?6666"
   }
 
-  static _criar_guia_padrao(id) {
+  static _criar_guia_padrao() {
     const guia_wrapper = document.createElement("div")
     const guia = ` 
       <section class="r_enviar js_guia_padrao row justify-content-center">
@@ -23,7 +23,7 @@ class Navegador {
       <section class="row mt-2 justify-content-center">
         <div class="col-11 row">
           <button class="col r_botao_localhost js_botao_localhost btn border-0 rounded-0 fs-1">Localhost</button>
-          <button class="col r_botao_incorporar js_botao_incorporar btn border-0 rounded-0 fs-1">Incorporar</button>
+          <button class="col r_botao_incorporar js_botao_incorporar btn border-0 rounded-0 fs-1">Incorporados</button>
         </div>
       </section>
     `
@@ -45,8 +45,8 @@ class Navegador {
     return iframe
   }
 
-  static _criar_iframe_com_guia(endereco, numero_da_guia) {
-    const guia = this._criar_guia_padrao(numero_da_guia)
+  static _criar_iframe_com_guia(endereco) {
+    const guia = this._criar_guia_padrao()
     const iframe = this._criar_iframe(endereco)
 
     guia.innerHTML = ""
@@ -167,7 +167,7 @@ class Navegador {
   static _inserir_nova_guia_em(numero_da_guia) {
     this._se_a_guia_ja_existir_apague(numero_da_guia)
 
-    const guia = this._criar_guia_padrao(numero_da_guia)
+    const guia = this._criar_guia_padrao()
 
     this._adicionar_funcionalidade(guia)
 
