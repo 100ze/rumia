@@ -9,6 +9,6 @@ chrome.action.onClicked.addListener((tab) => {
   // injete os estilos css dentro da aba atual
   chrome.scripting.insertCSS({
     target: { tabId: tab.id },
-    files: ["css/rumia.css"],
+    files: ["css/rumia_wrapper.css"],
   })
 })
