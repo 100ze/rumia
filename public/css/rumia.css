@@ -11744,5 +11744,21 @@ textarea.form-control-lg {
 body {
   background-color: #482933;
 }
+body .r_principal {
+  background-color: #fed697;
+}
+body .r_principal .r_numero_aba {
+  max-width: 60px;
+  line-height: 60px;
+  background-color: #9e6f78;
+  color: #ffffff;
+}
+body .r_principal .r_gif {
+  width: 60px;
+  height: 60px;
+}
+body .r_principal .r_botao {
+  background-color: #e4a8aa !important;
+}
 
 /*# sourceMappingURL=rumia.css.map */
