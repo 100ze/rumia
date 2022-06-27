@@ -11779,9 +11779,25 @@ body .r_pesquisa {
   min-height: 60px;
   margin-top: 100px;
 }
+body .r_pesquisa input {
+  background-color: #fed697;
+  color: #333;
+}
+body .r_pesquisa input:focus {
+  background-color: #ffffff;
+  outline: none;
+}
 body .r_pesquisa .r_botao_pesquisar {
   background-color: #ed3839 !important;
   color: #ffffff;
+}
+body .r_pesquisa .r_botao_pesquisar:hover {
+  background-color: #d41d12 !important;
+  outline: none;
+}
+body .r_pesquisa .r_botao_pesquisar:active {
+  background-color: #d41d12 !important;
+  outline: none;
 }
 body .r_botao_incorporar {
   background-color: #4e4a55;
