@@ -1,9 +1,6 @@
 
 class Navegador {
   static {
-    // serve literalmente pra nada kkkkkkkkk
-    this._palavra_diferenciadora = "touhou"
-
     this._lista_de_guias = []
     this._guia_atual = 0
 
@@ -30,7 +27,6 @@ class Navegador {
         </div>
       </section>
     `
-    guia_wrapper.id = this._palavra_diferenciadora + id
     guia_wrapper.innerHTML = guia
 
     return guia_wrapper
@@ -78,11 +74,26 @@ class Navegador {
     guia.appendChild(iframe)
   }
 
+  static _botao_localhost() {
+    const guia = this.parentNode.parentNode.parentNode
+    const campo = guia.querySelector(".js_campo")
+
+    let endereco = "http://localhost:"
+    endereco += campo.value ? campo.value : 8080
+
+    const iframe = Navegador._criar_iframe(endereco)
+
+    guia.innerHTML = ""
+    guia.appendChild(iframe)
+  }
+
   static _adicionar_funcionalidade(guia) {
     const botao_enviar = guia.querySelector(".js_botao_enviar")
+    const botao_localhost = guia.querySelector(".js_botao_localhost")
     const campo = guia.querySelector(".js_campo")
 
     botao_enviar.addEventListener("click", this._botao_enviar)
+    botao_localhost.addEventListener("click", this._botao_localhost)
   }
 
   static _c(o) {
