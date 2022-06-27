@@ -11743,22 +11743,29 @@ textarea.form-control-lg {
 }
 body {
   background-color: #482933;
+  color: #ffffff;
 }
-body .r_principal {
+body .r_cabecalho {
   background-color: #fed697;
 }
-body .r_principal .r_numero_aba {
+body .r_cabecalho .r_numero_aba {
   max-width: 60px;
   line-height: 60px;
   background-color: #9e6f78;
-  color: #ffffff;
 }
-body .r_principal .r_gif {
+body .r_cabecalho .r_gif {
   width: 60px;
   height: 60px;
 }
-body .r_principal .r_botao {
+body .r_cabecalho .r_botao {
   background-color: #e4a8aa !important;
+}
+body .r_pesquisa {
+  min-height: 60px;
+}
+body .r_pesquisa .r_botao_pesquisar {
+  background-color: #ed3839 !important;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=rumia.css.map */
