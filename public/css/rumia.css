@@ -11741,6 +11741,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+::selection {
+  color: #ffffff;
+  background: #d41d12;
+}
+
 body {
   background-color: #482933;
   color: #ffffff;
@@ -11753,12 +11758,22 @@ body .r_cabecalho .r_numero_aba {
   line-height: 60px;
   background-color: #9e6f78;
 }
-body .r_cabecalho .r_gif {
+body .r_cabecalho .r_numero_aba:hover {
+  background-color: #4e4a55;
+}
+body .r_cabecalho .r_gif img {
   width: 60px;
   height: 60px;
 }
+body .r_cabecalho .r_gif:hover {
+  background-color: #e3825b;
+}
 body .r_cabecalho .r_botao {
   background-color: #e4a8aa !important;
+  color: #ffffff;
+}
+body .r_cabecalho .r_botao:hover {
+  background-color: #ed3839 !important;
 }
 body .r_pesquisa {
   min-height: 60px;
