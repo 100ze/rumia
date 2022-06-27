@@ -1,25 +1,29 @@
 
-window.console.log("fantasy star")
+window.console.log("TOUHOU :D")
 
 class Wrapper {
   static {
     this.body = document.querySelector("body")
   }
 
-  static _adicionar_ao_shadow_dom(elemento, conteudo) {
-    elemento.attachShadow({ mode: "open" }).innerHTML = conteudo
+  static _pegar_url_da_extensao(caminho) {
+    return chrome.runtime.getURL(caminho)
   }
 
-  static criar_wrapper(conteudo) {
-    const wrapper = document.createElement("div")
+  static _criar_wrapper() {
+    const wrapper = document.createElement("iframe")
 
     wrapper.classList.add("rumia_wrapper")
 
-    this._adicionar_ao_shadow_dom(wrapper, conteudo)
-
     this.body.appendChild(wrapper)
+
+    return wrapper
+  }
+
+  static carregar_pagina() {
+    const wrapper = this._criar_wrapper()
+    wrapper.src = this._pegar_url_da_extensao("/index.html")
   }
 }
 
-// testes manuais
-Wrapper.criar_wrapper("<h1>said i love u but i lied</h1>")
+Wrapper.carregar_pagina()

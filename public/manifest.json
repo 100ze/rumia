@@ -11,6 +11,16 @@
   "background": {
     "service_worker": "js/touhou.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/*"
+      ],
+      "matches": [
+        "https://atendimento.frasanet.com.br/*"
+      ]
+    }
+  ],
   "permissions": [
     "activeTab",
     "scripting"
