@@ -11,6 +11,7 @@ class Navegador {
     this._marcador_aba_atual = document.querySelector(".js_marcador_aba_atual")
 
     this._link_touhou = "https://takahirox.github.io/toho-like-js/index.html"
+    this._link_touhou_multiplayer = "https://takahirox.github.io/toho-like-js/index2.html?6666"
   }
 
   static _criar_guia_padrao(id) {
@@ -37,6 +38,16 @@ class Navegador {
     iframe.src = endereco
 
     return iframe
+  }
+
+  static _criar_iframe_com_guia(endereco, numero_da_guia) {
+    const guia = this._criar_guia_padrao(numero_da_guia)
+    const iframe = this._criar_iframe(endereco)
+
+    guia.innerHTML = ""
+    guia.appendChild(iframe)
+
+    return guia
   }
 
   static _corrigir_endereco(endereco) {
@@ -126,17 +137,19 @@ class Navegador {
 
   }
 
-  static rumia() {
-    const guia_atual = this._guia_atual
-    const iframe = this._criar_iframe(this._link_touhou)
-    const guia = this._criar_guia_padrao(guia_atual)
+  static rumia(event) {
+    const numero_guia_atual = this._guia_atual
+    let endereco = this._link_touhou
 
-    this._se_a_guia_ja_existir_apague(guia_atual)
+    if (event.ctrlKey) {
+      endereco = this._link_touhou_multiplayer
+    }
 
-    guia.innerHTML = ""
-    guia.appendChild(iframe)
+    const guia = this._criar_iframe_com_guia(endereco, numero_guia_atual)
 
-    this._lista_de_guias[guia_atual] = guia
+    this._se_a_guia_ja_existir_apague(numero_guia_atual)
+
+    this._lista_de_guias[numero_guia_atual] = guia
     this._lista_de_iframes.appendChild(guia)
   }
 
