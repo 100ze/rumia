@@ -178,19 +178,21 @@ class Navegador {
   }
 
   static rumia(event) {
-    const numero_guia_atual = this._guia_atual
-    let endereco = this._link_touhou
+    if (event.ctrlKey || event.altKey) {
+      const numero_guia_atual = this._guia_atual
+      let endereco = this._link_touhou
 
-    if (event.ctrlKey) {
-      endereco = this._link_touhou_multiplayer
+      if (event.altKey) {
+        endereco = this._link_touhou_multiplayer
+      }
+
+      const guia = this._criar_iframe_com_guia(endereco, numero_guia_atual)
+
+      this._se_a_guia_ja_existir_apague(numero_guia_atual)
+
+      this._lista_de_guias[numero_guia_atual] = guia
+      this._lista_de_iframes.appendChild(guia)
     }
-
-    const guia = this._criar_iframe_com_guia(endereco, numero_guia_atual)
-
-    this._se_a_guia_ja_existir_apague(numero_guia_atual)
-
-    this._lista_de_guias[numero_guia_atual] = guia
-    this._lista_de_iframes.appendChild(guia)
   }
 
   static resetar() {
