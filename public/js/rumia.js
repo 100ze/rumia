@@ -5,27 +5,32 @@ class Wrapper {
   static {
     this._body = document.querySelector("body")
     this._menu_pagina = document.querySelector(".menu")
-    this._rumia_browser = this._criar_wrapper()
+    this._rumia_browser = this._criar_browser()
+    this._rumia_icone = this._criar_icone()
   }
 
   static _pegar_url_da_extensao(caminho) {
     return chrome.runtime.getURL(caminho)
   }
 
-  static _criar_wrapper() {
-    const wrapper = document.createElement("iframe")
+  static _criar_browser() {
+    const browser = document.createElement("iframe")
 
-    wrapper.allow = "clipboard-read"
+    browser.allow = "clipboard-read; clipboard-write"
 
-    wrapper.classList.add("rumia_wrapper")
+    browser.classList.add("rumia_wrapper")
 
-    this._body.appendChild(wrapper)
+    browser.src = this._pegar_url_da_extensao("/index.html")
 
-    return wrapper
+    return browser
   }
 
-  static carregar_pagina() {
-    this._rumia_browser.src = this._pegar_url_da_extensao("/index.html")
+  static _criar_icone() {
+    const rumia = document.createElement("img")
+    rumia.src = this._pegar_url_da_extensao("/img/rumia_dancando.gif")
+    rumia.classList.add("r_rumia_icone")
+
+    return rumia
   }
 
   static _minimizar_maximinizar() {
@@ -38,9 +43,16 @@ class Wrapper {
     }
   }
 
+  static carregar_pagina() {
+    this._body.appendChild(this._rumia_browser)
+    this._body.appendChild(this._rumia_icone)
+  }
+
   static carregar_minimizar_maximinizar() {
+    this._rumia_icone.addEventListener("click", this._minimizar_maximinizar.bind(this))
+
     document.addEventListener('keydown', (event) => {
-      if (event.key == "j" && event.altKey) {
+      if (event.key == "r" && event.altKey || event.key == "AltGraph" && event.altKey) {
         this._minimizar_maximinizar()
       }
     }, false);

@@ -2,8 +2,14 @@
   display: none !important;
 }
 
-.r_ativo {
-  color: #ed3839 !important;
+.r_rumia_icone {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 99;
 }
 
 .rumia_wrapper {
