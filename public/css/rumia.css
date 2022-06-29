@@ -11752,6 +11752,7 @@ body {
 }
 body .r_cabecalho {
   height: 60px;
+  margin-right: 60px !important;
   background-color: #fed697;
 }
 body .r_cabecalho .r_numero_aba {
