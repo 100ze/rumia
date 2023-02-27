@@ -17,6 +17,8 @@ Dentro dessa div, tinham elementos como botões e uma barra de url, que ao clica
 
 Aqui em baixo está um exemplo:
 
+![rumia](https://github.com/100ze/rumia/blob/main/rumia_example.gif?raw=true "rumia_example")
+
 ## É possível rodar a extensão?
 Sim! primeiro você baixa o código da rumia, depois você vai precisar ir na página [chrome://extensions/](chrome://extensions/) e clicar no botão "Modo desenvolvedor", depois, clique em "Carregar sem compactação" e selecione a pasta `rumia/public/`.
 
